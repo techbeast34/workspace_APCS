@@ -1,0 +1,294 @@
+
+public class whatever {
+	/*
+	 * Pranav Sharma
+	 * 9/28/15
+	 * Postnet:
+	 * Does Three Things:
+	 * 1)Converts Barcodes into Zip Codes
+	 * 2)Looks up Cities with Zip Codes
+	 * 3)Converts Zip Codes to Barcodes
+	 */
+
+
+	import java.io.File;
+	import java.io.FileNotFoundException;
+	import java.util.Scanner;
+	import java.util.StringTokenizer;
+
+	public class Postnet {
+
+		public static void main(String[] args) throws FileNotFoundException {
+			ROP.choose();
+			//sets up files and makes an array
+			File fZipCodes = new File("ZipCodes.txt"),fCityCodes = new File("ZipCodesCity.txt"),fBarCodes = new File("ZipBarCodes.txt");
+			File[] files = {fZipCodes, fCityCodes, fBarCodes};
+			
+			//sets up scanners and makes an array
+			Scanner in = new Scanner(System.in), fInZip = null, fInCity = null, fInBar = null;
+			Scanner[] scanners = {fInZip, fInCity, fInBar};
+			
+			//Printing this here so it doesn't get looped
+			System.out.println("Hi! Welcome to POSTNET.");
+			
+			// this is a cool little loop that controls the whole program
+			Boolean flag = true; //user doing anything?
+			while(flag) {
+				flag = chooser(welcome(in),scanners,files);
+			}
+
+		}
+
+		/*
+		 * welcome: main user interface of program
+		 * Pre: must be passed a "System.in" scanner
+		 * Post: user choice is passed on to chooser program
+		 */
+		private static int welcome(Scanner in) {
+			System.out.println();
+			System.out.println("You can perform three fuctions:");
+			System.out.println("1) Convert a zip code to a barcode.");
+			System.out.println("2) Look up a city using a zip code.");
+			System.out.println("3) Covert a barcode to a zip code. Then look up a city using that barcode.");
+			System.out.println("4) Do all the above.");
+			String str;
+			while(true) {
+				System.out.println();
+				System.out.println("Enter the number of the action you want to perform, or enter 'e' to exit.");
+				str = in.nextLine().toLowerCase();
+				if(str.equals("e")) { // quit
+					return 0;
+				}
+				else if(str.equals("1") || str.equals("2") || str.equals("3") || str.equals("4")) { // gives tasks to chooser
+					System.out.println();
+					System.out.println();
+					System.out.println();
+					return Integer.parseInt(str);
+				}
+				else {
+					System.out.println("Error! Please try again.");
+				}
+			}
+			
+			
+		}
+		
+		/*
+		 * chooser: takes in input from welcome() and performs tasks or exits the program
+		 * pre: input from welcome() in int form as well as scanner + file arrays
+		 * post: program quits or task is performed  
+		 */
+		private static boolean chooser(int welcome, Scanner[] scanners, File[] files) throws FileNotFoundException {
+			if (welcome == 0) {
+				return false;
+			}
+			else if(welcome < 4) {
+				switch (welcome) {
+					case 1: zipCode(scanners,files);
+					break;
+					case 2: cityCode(scanners,files);
+					break;
+					case 3: barCode(scanners,files);
+					break;
+				}
+				return true;
+			}
+			else {
+				zipCode(scanners,files);
+				cityCode(scanners,files);
+				barCode(scanners,files);
+				return true;
+			}
+			
+		}
+
+		/*
+		 * setScanners: sets up file scanners in the scanner array with the files in the file array
+		 * Pre: must be passed scanner and file arrays
+		 * Post: scanners are ready for use
+		 */
+		private static void setScanners(Scanner[] scanners, File[] files) throws FileNotFoundException {
+			for(int i=0; i < scanners.length; i++){
+				scanners[i] = new Scanner(files[i]);
+			}
+			
+		}
+
+		/*
+		 * zipCode: reads zipCode file and outputs barcodes
+		 * pre: must be passed scanner array and file array
+		 * post: barcodes are printed out
+		 */
+		private static void zipCode(Scanner[] scanners, File[] files) throws FileNotFoundException {
+			setScanners(scanners,files);
+			while(scanners[0].hasNext()) {
+				printBarcode(scanners[0].nextLine());
+			}
+			System.out.println();
+			System.out.println();
+			System.out.println();
+		}
+
+		/*
+		 * printBarcode: prints a barcode based on a given zip code
+		 * pre: must be passed a zip code in string form
+		 * post: barcode is printed out
+		 */
+		private static void printBarcode(String zip) {
+			String output = "", rOutput =""; 
+			int num =0;
+			for (int i = 0; i < zip.length(); i++) { // steps through zip code making the bulk of the bar code
+				num = Integer.parseInt(zip.substring(i, i+1));
+				output = output + numToCode(num);
+				rOutput = rOutput + numToCode(num) + " ";
+				
+			}
+			String check = numToCode((checkGen(zip))); // make check digit
+			
+			System.out.println("Zip Code:    " + zip);
+			System.out.println("Readable Barcode:    | " + rOutput + check + " |");
+			System.out.println("Barcode:    |" + output + check + "|");
+			System.out.println();
+			
+		}
+
+		/*
+		 * checkGen: generates a check digit for a zip code
+		 * pre: must be passed zip code in string form
+		 * post: check digit in int form is returned
+		 */
+		private static int checkGen(String zip) {
+			int check = 0;
+			for (int i = 0; i < zip.length(); i++) { //finds total
+				check = check + Integer.parseInt(zip.substring(i, i+1)); 
+			}
+			
+			check = 10 - (check % 10); //math used
+			
+			if (check == 10) { // necessary because of the math I used  
+				check = 0;
+			}
+			return check;
+		}
+
+		/*
+		 * cityCode: using zip codes from the zip code file, it looks up cities from the city file and prints a barcode
+		 * Pre: must be passed the scanner array and the file array
+		 * Post: search results and barcode is printed
+		 */
+		private static void cityCode(Scanner[] scanners, File[] files) throws FileNotFoundException {
+			setScanners(scanners,files);
+			while(scanners[0].hasNext()) {
+				String zip = scanners[0].nextLine();
+				zipSearch(zip,scanners,files); //search
+				printBarcode(zip); // print codes
+			}
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			
+		}
+
+		/*
+		 * zipSearch: searches the city code file for a given zip code and prints results
+		 * Pre: must be passed zip code in string form along with scanner and file arrays
+		 * Post: results of search are printed
+		 */
+		private static void zipSearch(String zip, Scanner[] scanners, File[] files) throws FileNotFoundException {
+			scanners[1] = new Scanner(files[1]); //reset scanner due to location in while loop  
+			boolean flag = true; // flag for match
+			System.out.println("Locations:    ");
+			while(scanners[1].hasNext()) {
+				StringTokenizer st = new StringTokenizer(scanners[1].nextLine(), ","); //breaking up the line into chunks
+				if (st.nextToken().equals(zip)) { // if match print additional info
+					flag = false;
+					while (st.hasMoreTokens()) {
+						System.out.print("    "+ st.nextToken() + "	");
+					}
+					System.out.println();
+				}
+			}
+			if(flag) {
+				System.out.println("None Found.");
+			}
+		}
+
+		/*
+		 * barCode: converts barcodes from the barcode file to zip codes. if zip code is valid it looks up the city info from the city file
+		 * Pre: needs to be passed the array of scanners and the array of files
+		 * Post: valid zip codes are returned with city info while invalid ones give an error
+		 */
+		private static void barCode(Scanner[] scanners, File[] files) throws FileNotFoundException {
+			setScanners(scanners,files);
+			while (scanners[2].hasNext()) {
+				String zip = "", nextZip = "";
+				boolean flag = true; // flag for validity
+				String str = scanners[2].nextLine();
+				for (int i = 1; i < str.length()-6; i += 5){ // for loop forms zip codes
+					nextZip = codeToNum(str.substring(i,i+5));
+					if (nextZip.equals("-1")) { // checks if digit is valid
+						zip = "Error: Invalid Digit";
+						flag = false;
+					}
+					else if (flag){
+						zip = zip + nextZip;
+					}
+				}
+				if ((flag) && (checkGen(zip) != Integer.parseInt(codeToNum(str.substring(str.length()-6,str.length()-1))))) { // checks if check digit is valid				                                                                  
+					zip = "Error: Check Failed";
+					flag = false;
+				}
+				System.out.println(str + "     =>    " + zip);
+				if (flag){ // if valid search city
+					zipSearch(zip,scanners,files);
+				}
+				System.out.println();
+			}
+			System.out.println();
+			System.out.println();
+		}
+		
+		/*
+		 * codeToNum: converts an integer 0-9 to a barcode segment
+		 * Pre: an integer 0-9 must be passed to it
+		 * Post: a barcode segment is returned
+		 */
+		private static String numToCode(int num) {
+			switch (num) {
+				case 0: return "||:::";
+				case 1: return ":::||";
+				case 2: return "::|:|";
+				case 3: return "::||:";
+				case 4: return ":|::|";
+				case 5: return ":|:|:";
+				case 6: return ":||::";
+				case 7: return "|:::|";
+				case 8: return "|::|:";
+				case 9: return "|:|::";
+			}
+			return "";
+		}
+		
+		/*
+		 * codeToNum: converts barcode segment into a digit
+		 * Pre: barcode segment in form of a string must be passed to it
+		 * Post: a digit in string form is returned
+		 */
+		private static String codeToNum(String code) {
+			switch (code) {
+				case "||:::": return "0";
+				case ":::||": return "1";
+				case "::|:|": return "2";
+				case "::||:": return "3";
+				case ":|::|": return "4";
+				case ":|:|:": return "5";
+				case ":||::": return "6";
+				case "|:::|": return "7";
+				case "|::|:": return "8";
+				case "|:|::": return "9";
+			}
+			return "-1";
+		}
+		
+	}
+}
