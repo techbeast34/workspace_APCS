@@ -1,0 +1,107 @@
+Options 1 & 2
+
+59043 LAME DEER MT
+
+	 Readable Barcode: |  :|:|: |:|:: ||::: :|::| ::||: |:|:: |
+     	 Postal Barcode:   |:|:|:|:|::||::::|::|::||:|:|::|
+
+16058 TURKEY CITY PA
+
+	 Readable Barcode: |  :::|| :||:: ||::: :|:|: |::|: ||::: |
+     	 Postal Barcode:   |:::||:||::||::::|:|:|::|:||:::|
+
+21020 BORING MD
+
+	 Readable Barcode: |  ::|:| :::|| ||::: ::|:| ||::: :|:|: |
+     	 Postal Barcode:   |::|:|:::||||:::::|:|||::::|:|:|
+
+29395 DISNEY DIRECT MARKETING SC
+29395 JONESVILLE SC
+
+	 Readable Barcode: |  ::|:| |:|:: ::||: |:|:: :|:|: ::|:| |
+     	 Postal Barcode:   |::|:||:|::::||:|:|:::|:|:::|:||
+
+25259 LINDEN WV
+25259 LOONEYVILLE WV
+25259 TARIFF WV
+
+	 Readable Barcode: |  ::|:| :|:|: ::|:| :|:|: |:|:: |:::| |
+     	 Postal Barcode:   |::|:|:|:|:::|:|:|:|:|:|::|:::||
+
+05042 EAST RYEGATE VT
+05042 MOSQUITOVILLE VT
+05042 RYEGATE VT
+05042 RYEGATE CORNER VT
+
+	 Readable Barcode: |  ||::: :|:|: ||::: :|::| ::|:| |:|:: |
+     	 Postal Barcode:   |||::::|:|:||::::|::|::|:||:|::|
+
+40122 FORT KNOX KY
+
+	 Readable Barcode: |  :|::| ||::: :::|| ::|:| ::|:| :::|| |
+     	 Postal Barcode:   |:|::|||::::::||::|:|::|:|:::|||
+
+99755 DENALI NATIONAL PARK AK
+99755 DENALI PARK AK
+99755 HEALY AK
+
+	 Readable Barcode: |  |:|:: |:|:: |:::| :|:|: :|:|: :|:|: |
+     	 Postal Barcode:   ||:|::|:|::|:::|:|:|::|:|::|:|:|
+
+90210 BEVERLY HILLS CA
+
+	 Readable Barcode: |  |:|:: ||::: ::|:| :::|| ||::: |::|: |
+     	 Postal Barcode:   ||:|::||:::::|:|:::||||:::|::|:|
+
+20050 PENTAGON DC
+20050 WASHINGTON DC
+
+	 Readable Barcode: |  ::|:| ||::: ||::: :|:|: ||::: ::||: |
+     	 Postal Barcode:   |::|:|||:::||::::|:|:||:::::||:|
+
+-----------------------------------
+
+Option 3
+
+||:|:::||::||:::::||:|:|::::||:|	 -------> 	96039
+HAPPY CAMP CA
+
+|:||::|:|:::::||:|::|::||:|:::||	 -------> 	69143
+HERSHEY NE
+
+|:|:|:|:|::|:|:::::|||:|::|:::||	 -------> 	59919
+HUNGRY HORSE MT
+
+||:::|:|:|:::||::::||::|:|::|:||	 -------> 	75312
+DALLAS TX
+READER'S DIGEST TX
+
+||:::||:::|::||:||::::||::|:::||	 -------> 	77306
+CONROE TX
+CUT AND SHOOT TX
+
+||:|::::|:||:::|:||:::|::|:::||| 	 -------> 	ERROR - Invalid Check Digit!
+No Location Found. 
+
+||||:::::||:|:|::::||||:::::||:| 	 -------> 	ERROR - Invalid Check Digit!
+No Location Found. 
+
+||:::|:|:|::::||:|:|::||:::||::|	 -------> 	75156
+ENCHANTED OAK TX
+ENCHANTED OAKS TX
+GUN BARREL CITY TX
+GUN BARREL CY TX
+MABANK TX
+
+||::|::|:|:::||:::|:|:::||:::|||	 -------> 	85321
+AJO AZ
+WHY AZ
+
+|::|:|||:::::||::|:|::|:|::|:|:|	 -------> 	20355
+PENTAGON DC
+WASHINGTON DC
+
+||:|:::::|||:::|::||:||:::||:::|	 -------> 	91730
+CUCAMONGA CA
+RANCHO CUCAMONGA CA
+RCH CUCAMONGA CA

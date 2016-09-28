@@ -1,0 +1,10 @@
+/**
+ * Dice
+ * 
+ * @author Satyendra Emani
+ *
+ */
+public class Die {
+	int face = 0;
+	
+}
