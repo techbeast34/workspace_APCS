@@ -1,0 +1,22 @@
+/**
+ * Dice
+ * 
+ * @author Satyendra Emani
+ *
+ */
+public class Die {
+	private static int face = 0;
+	
+	public static void Roll(){
+		face = (int) (Math.random() * (6 - 1 + 1)) + 6;
+	}
+	
+	public int getFace(){
+		return face;
+	}
+	
+	public String toString(){
+		return "Face: " + face;
+	}
+	
+}

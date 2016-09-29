@@ -1,0 +1,24 @@
+
+public class DieClient {
+	
+	static Die[] dice = {new Die(), new Die()};
+	public static void main(String[] args) {
+		
+		rollDice();
+		while(dice[0].getFace() != dice[1].getFace()){
+			System.out.println("Die 1: " + dice[0].getFace() + "\n Die 2" + dice[1].getFace());
+			rollDice();
+		}
+		if(dice[0].getFace() == dice[1].getFace()){
+			System.out.println("You rolled doubles!");
+			System.out.println("Die 1: " + dice[0].getFace() + "\n Die 2" + dice[1].getFace());
+		}
+
+	}
+
+	private static void rollDice() {
+		dice[0].Roll();
+		dice[1].Roll();
+	}
+
+}

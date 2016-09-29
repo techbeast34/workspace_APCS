@@ -1,0 +1,17 @@
+
+public class DieClient {
+	
+	static Die[] dice = {new Die(), new Die()};
+	public static void main(String[] args) {
+		
+		rollDice();
+
+	}
+
+	private static void rollDice() {
+		dice[0].Roll();
+		dice[1].Roll();
+		
+	}
+
+}

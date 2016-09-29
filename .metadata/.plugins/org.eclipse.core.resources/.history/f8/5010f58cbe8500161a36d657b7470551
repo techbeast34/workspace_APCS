@@ -1,0 +1,33 @@
+
+public class DieClient {
+	
+	
+	public static void main(String[] args) {
+		Die die1 = new Die();
+		Die die2 = new Die();
+		
+		die1.roll();
+		System.out.println(die1.toString());
+		System.out.println(die2.toString());
+		die2.roll();
+		System.out.println(die2.toString());
+		
+		while(die1.getFace() != die2.getFace()){
+			
+			
+			
+			die1.roll();
+			die2.roll();
+		}
+		
+		if(die1.getFace() == die2.getFace()){
+			
+			System.out.println("You rolled doubles!");
+			
+			System.out.println("Die 1: " + die1.getFace() + "\n"+"Die 2: " + die2.getFace());
+		}
+
+	}
+
+
+}

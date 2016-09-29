@@ -7,12 +7,16 @@
 public class Die {
 	private static int face = 0;
 	
-	public static void Roll(){
-		face = (int) (Math.random() * 6);
+	public void roll(){
+		face = (int) (Math.random() * (6 - 1 + 1)) + 1;
 	}
 	
-	public static int getFace(){
+	public int getFace(){
 		return face;
+	}
+	
+	public String toString(){
+		return "Face: " + face;
 	}
 	
 }
