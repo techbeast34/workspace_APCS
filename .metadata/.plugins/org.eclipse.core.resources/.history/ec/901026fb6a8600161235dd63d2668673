@@ -7,7 +7,6 @@ public class DieClient {
 		Die die1 = new Die();
 		Die die2 = new Die();
 		
-		
 		int count = 1;
 		
 		die1.roll();

@@ -3,11 +3,8 @@ public class DieClient {
 	
 	
 	public static void main(String[] args) {
-		
 		Die die1 = new Die();
 		Die die2 = new Die();
-		
-		
 		int count = 1;
 		
 		die1.roll();
