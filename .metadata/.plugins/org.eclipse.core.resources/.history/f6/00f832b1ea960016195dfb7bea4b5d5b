@@ -1,0 +1,47 @@
+public class Barcode {
+	
+	private String zipcode;
+	private String barcode;
+	private int[] zipcodeArray;
+	private final String[] barcodeBits = { 
+			"||:::", // 0
+			":::||", // 1
+			"::|:|", // 2
+			"::||:", // 3
+			":|::|", // 4
+			":|:|:", // 5
+			":||::", // 6
+			"|:::|", // 7
+			"|::|:", // 8
+			"|:|::" }; // 9
+	
+	
+	public Barcode(String barcode, String zipcode, boolean isBarcode){
+		if(isBarcode){
+			this.barcode = barcode;
+			convertBarcodeToZipcode();
+		}
+		else
+			this.zipcode = zipcode;
+	}
+	
+	private void convertBarcodeToZipcode() {
+		
+	}
+
+	public String getZipcode(){
+		return zipcode;
+	}
+	
+	public boolean isValid(){
+		return false; //Implement later
+	}
+	
+	public String getBarcode(){
+		return barcode;
+	}
+	
+	public String toString(){
+		return "Barcode: " + barcode + " , Zipcode: " + zipcode;
+	}
+}

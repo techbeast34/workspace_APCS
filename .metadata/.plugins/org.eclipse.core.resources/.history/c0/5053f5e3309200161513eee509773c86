@@ -1,0 +1,11 @@
+
+public class Location {
+	String zipCode;
+	int
+	
+	public Location(String zipcode){
+		zipCode = zipcode;
+	}
+	
+
+}

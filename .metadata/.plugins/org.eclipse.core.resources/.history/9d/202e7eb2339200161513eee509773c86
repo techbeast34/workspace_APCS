@@ -1,0 +1,10 @@
+
+public class ZipCode {
+	String zipcode;
+	
+	public ZipCode(String zipcode){
+		this.zipcode = zipcode;
+		
+	}
+
+}

@@ -1,0 +1,10 @@
+
+public class Client {
+
+	public static void main(String[] args) {
+		Barcode barcode = new Barcode(null, "01581", false);
+		System.out.println(barcode.getZipcode());
+		System.out.println(barcode.getBarcode());
+	}
+
+}

@@ -1,0 +1,11 @@
+
+public class ZipCode {
+	String zipcode;
+	File zipcodeFile = new File("ZipCodes");
+	
+	
+	public ZipCode(String zipcode){
+		this.zipcode = zipcode;
+	}
+
+}

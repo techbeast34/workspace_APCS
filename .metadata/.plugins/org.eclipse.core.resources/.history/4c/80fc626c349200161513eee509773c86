@@ -1,0 +1,25 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class ZipCode {
+	String zipcode;
+	File zipcodeFile = new File("ZipCodes");
+	Scanner zipcodeFileScanner;
+	
+	public ZipCode(String zipcode) throws FileNotFoundException{
+		this.zipcode = zipcode;
+		zipcodeFileScanner = new Scanner(zipcodeFile);
+	}
+	
+	public ZipCode() throws FileNotFoundException{
+		zipcodeFileScanner = new Scanner(zipcodeFile);
+	}
+	
+	public ZipCode(File zipcodeFile) throws FileNotFoundException{
+		this.zipcodeFile = zipcodeFile;
+		zipcodeFileScanner = new Scanner(zipcodeFile);
+	}
+	
+
+}

@@ -1,0 +1,24 @@
+import java.io.File;
+
+public class Location {
+	String zipCode;
+	File zipCodeCityFile = new File("ZipCodesCity.txt");
+	
+	public Location(String zipcode){
+		zipCode = zipcode;
+	}
+	
+	public Location(){
+		
+	}
+	
+	public String findLocation(String zipcode){
+		
+		return zipcode;
+	}
+	
+	public String findLocation(){
+		return "";
+	}
+
+}

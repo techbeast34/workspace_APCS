@@ -1,0 +1,45 @@
+import java.io.File;
+import java.util.Scanner;
+
+public class Location {
+	String zipCode;
+	File zipCodeCityFile = new File("ZipCodesCity.txt");
+	Scanner scanner = new Scanner(zipCodeCityFile);
+	
+	public Location(String zipcode){
+		zipCode = zipcode;
+	}
+	
+	public Location(){
+		
+	}
+	
+	public String findLocation(String zipcode){
+		String currentLine = "";
+		String city = "";
+		
+		while (scanner.hasNext()) {
+			currentLine = scanner.nextLine();
+			if (currentLine.contains(zipcode)) {
+				city += currentLine.replace(",", " ").trim() + "\n";
+			}
+		}
+		
+		return city;
+	}
+	
+	public String findLocation(){
+		String currentLine = "";
+		String city = "";
+		
+		while (scanner.hasNext()) {
+			currentLine = scanner.nextLine();
+			if (currentLine.contains(zipCode)) {
+				city += currentLine.replace(",", " ").trim() + "\n";
+			}
+		}
+		
+		return city;
+	}
+
+}

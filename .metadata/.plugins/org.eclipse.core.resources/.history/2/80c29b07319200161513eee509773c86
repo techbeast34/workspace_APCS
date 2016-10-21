@@ -1,0 +1,11 @@
+
+public class Location {
+	String zipCode;
+	File zipCodeCityFile = new File("ZipCodesCity.txt");
+	
+	public Location(String zipcode){
+		zipCode = zipcode;
+	}
+	
+
+}

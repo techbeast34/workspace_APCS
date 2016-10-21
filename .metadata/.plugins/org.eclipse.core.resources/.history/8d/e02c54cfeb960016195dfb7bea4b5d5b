@@ -1,0 +1,127 @@
+public class Barcode {
+
+	private String zipcode;
+	private String barcode;
+	private String[] zipcodeArray;
+	private final String[] barcodeBits = { 
+			"||:::", // 0
+			":::||", // 1
+			"::|:|", // 2
+			"::||:", // 3
+			":|::|", // 4
+			":|:|:", // 5
+			":||::", // 6
+			"|:::|", // 7
+			"|::|:", // 8
+			"|:|::" }; // 9
+
+	public Barcode(String barcode, String zipcode, boolean isBarcode) {
+		if (isBarcode) {
+			this.barcode = barcode;
+			convertBarcodeToZipcode(barcode);
+		} else {
+			this.zipcode = zipcode;
+			convertZipcodeToBarcode();
+		}
+	}
+
+	private void convertZipcodeToBarcode() {
+		String[] barCode = new String[6];
+		int total = 0;
+		int checkDigit = 0;
+		for (int i = 0; i < 5; i++) {
+			total += Integer.parseInt(zipcodeArray[i]);
+		}
+		//Total up the zipcode digits
+		
+		checkDigit = 10 - (total % 10);
+		if (checkDigit == 10) {
+			checkDigit = 0;
+		}
+		//Find the check digit. Sometimes when
+		//the check digit is 10, the check digit
+		//will manually need to be set to 0.
+		
+		for (int i = 0; i < zipcodeArray.length; i++) {
+			barCode[i] = barcodeBits[Integer.parseInt(zipcodeArray[i])];
+		}
+		//Encode the barcode using the global array
+		//"encodedBarcode" to encode the zipcode into
+		//a barcode
+		
+		barCode[5] = barcodeBits[checkDigit];
+		//Set last element of barcode array 
+		//to be the check digit
+		
+		for(int i = 0; i < barCode.length; i++){
+			
+		}
+	}
+
+	private void convertBarcodeToZipcode(String barcode) {
+		String barcodeBit = "";
+		char[] barcodeArray = new char[32];
+		String[] zipCode = new String[6];
+		int count = 0;
+
+		for (int i = 1; i <= barcode.toCharArray().length - 2; i++) {
+			barcodeArray[i] = barcode.toCharArray()[i];
+		}
+		// Strip the barcode of the frame bars.
+
+		for (int i = 0; i < barcodeArray.length; i++) {
+			barcodeBit += barcodeArray[i];
+			if (i % 5 == 0 && i != 0) {
+				zipCode[count] = convertBarcodeBitToDigit(barcodeBit.trim());
+				if (count < 5)
+					count++;
+				else if (count > 5)
+					count = 0;
+				barcodeBit = "";
+			}
+		}
+		zipcodeArray = zipCode;
+	}
+
+	private static String convertBarcodeBitToDigit(String barcodeBit) {
+		switch (barcodeBit) {
+		case "||:::": // 0
+			return "0";
+		case ":::||": // 1
+			return "1";
+		case "::|:|": // 2
+			return "2";
+		case "::||:": // 3
+			return "3";
+		case ":|::|": // 4
+			return "4";
+		case ":|:|:": // 5
+			return "5";
+		case ":||::": // 6
+			return "6";
+		case "|:::|": // 7
+			return "7";
+		case "|::|:": // 8
+			return "8";
+		case "|:|::": // 9
+			return "9";
+		}
+		return "-1";
+	}
+
+	public String getZipcode() {
+		return zipcode;
+	}
+
+	public boolean isValid() {
+		return false; // Implement later
+	}
+
+	public String getBarcode() {
+		return barcode;
+	}
+
+	public String toString() {
+		return "Barcode: " + barcode + " , Zipcode: " + zipcode;
+	}
+}

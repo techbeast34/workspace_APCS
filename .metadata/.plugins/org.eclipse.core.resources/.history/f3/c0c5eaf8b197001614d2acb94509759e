@@ -1,0 +1,10 @@
+
+public class Client {
+
+	public static void main(String[] args) {
+		Barcode[] barcodes = new Barcode[10];
+		barcodes[0] = new Barcode("01581", false);
+		System.out.println(barcodes[0].toString());
+	}
+
+}

@@ -1,0 +1,10 @@
+import java.io.FileNotFoundException;
+
+public class Client {
+
+	public static void main(String[] args) {
+		Barcode barcode = new Barcode("||:|:::||::||:::::||:|:|::::||:|", null, true);
+		System.out.println(barcode.getBarcode());
+	}
+
+}

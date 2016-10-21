@@ -1,0 +1,12 @@
+import java.io.File;
+
+public class ZipCode {
+	String zipcode;
+	File zipcodeFile = new File("ZipCodes");
+	Scanner zipcodeFileScanner;
+	
+	public ZipCode(String zipcode){
+		this.zipcode = zipcode;
+	}
+
+}

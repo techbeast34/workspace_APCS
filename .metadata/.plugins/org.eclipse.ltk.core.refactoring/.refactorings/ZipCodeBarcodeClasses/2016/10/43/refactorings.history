@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;Barcode.convertBarcode()&apos; to &apos;convertBarcodeToZipcode&apos;&#x0D;&#x0A;- Original project: &apos;ZipCodeBarcodeClasses&apos;&#x0D;&#x0A;- Original element: &apos;Barcode.convertBarcode()&apos;&#x0D;&#x0A;- Renamed element: &apos;Barcode.convertBarcodeToZipcode()&apos;&#x0D;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;convertBarcode&apos;" flags="589826" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;{Barcode.java[Barcode~convertBarcode" name="convertBarcodeToZipcode" references="true" stamp="1476984497842" version="1.0"/>
+</session>

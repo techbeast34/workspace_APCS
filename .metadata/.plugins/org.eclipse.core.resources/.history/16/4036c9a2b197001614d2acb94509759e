@@ -1,0 +1,8 @@
+
+public class Client {
+
+	public static void main(String[] args) {
+		Barcode[] barcodes = new Barcode[10];
+	}
+
+}

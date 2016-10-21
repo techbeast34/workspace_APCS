@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 3 elements to &apos;ZipCodeBarcodeClasses&apos;&#x0D;&#x0A;- Original project: &apos;ZipCodeBarcode&apos;&#x0D;&#x0A;- Destination element: &apos;ZipCodeBarcodeClasses&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     ZipBarCodes.txt&#x0D;&#x0A;     ZipCodesCity.txt&#x0D;&#x0A;     ZipCodes.txt" description="Copy files" destination="=ZipCodeBarcodeClasses" element1="ZipBarCodes.txt" element2="ZipCodesCity.txt" element3="ZipCodes.txt" files="3" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1476464961983" units="0" version="1.0"/>
+</session>
